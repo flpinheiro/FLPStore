@@ -1,0 +1,13 @@
+﻿@FLPStore.ApiService_HostAddress = https://localhost:7386
+
+POST {{FLPStore.ApiService_HostAddress}}/api/product
+Content-Type: application/json
+
+{
+  "Description" : "test",
+  "Name" : "test name",
+  "Price" : 10.2,
+  "Quantity" : 2
+}
+
+###

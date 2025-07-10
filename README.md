@@ -1,4 +1,4 @@
-# Study Store
+# FLPStore
 
 This is a study store.
 
@@ -10,3 +10,6 @@ This is a study store.
 * Serilog
 * NSwag
 
+## Class Model
+
+![class model](/docs/diagrams/model/model.svg)

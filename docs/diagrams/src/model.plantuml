@@ -1,0 +1,82 @@
+@startuml model
+class Product {
+    +id: guid
+    +name: string
+    +price: decimal
+    +description: string
+}
+
+class ShoppingCart {
+    +userId: guid
+}
+
+class User {
+    +id: guid
+    +name: string
+    +email: string
+}
+class Order {
+    +id: guid
+    +userId: guid
+    +totalAmount: decimal
+    +status: string
+}
+class OrderItem {
+    +orderId: guid
+    +productId: guid
+    +quantity: int
+    +price: decimal
+}
+class Payment {
+    +orderId: guid
+    +amount: decimal
+    +paymentMethod: string
+    +status: string
+}
+class Address {
+    +street: string
+    +city: string
+    +state: string
+    +zipCode: string
+    +country: string
+}
+class Review {
+    +id: guid
+    +productId: guid
+    +userId: guid
+    +rating: int
+    +comment: string
+}
+class Wishlist {
+    +id: guid
+    +Name: string
+}
+class Category {
+    +id: guid
+    +name: string
+    +description: string
+}
+
+
+ShoppingCart "0..*" -- "0..*" Product : contains >
+User "1" -- "1" ShoppingCart : owns >
+User "1" -- "0..*" Order : places >
+User "1" -- "0..*" Review : writes >
+User "1" -- "0..*" Wishlist : has >
+User "1" -- "0..*" Address : has >
+
+Order "1" -- "0..*" OrderItem : contains >
+Order "1" -- "1" Payment : processes >
+Order "1" -- "1" Address : ships to >
+OrderItem "0..*" -- "1" Product : includes >
+
+Product "1" -- "0..*" Review : receives >
+Product "0..*" -- "0..*" Wishlist : is in >
+
+Category "0..*" -- "0..*" Product : categorizes >
+
+@enduml
+
+
+
+

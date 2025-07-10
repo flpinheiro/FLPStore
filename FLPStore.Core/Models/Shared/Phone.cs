@@ -1,4 +1,4 @@
-﻿using FLPStore.Core.Constants;
+﻿using FLPStore.CrossCutting.Constants;
 
 namespace FLPStore.Core.Models.Shared;
 

@@ -4,13 +4,18 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <Version>0.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FLPStore.ServiceDefaults\FLPStore.ServiceDefaults.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FLPStore.Core\FLPStore.Core.csproj" />
+    <ProjectReference Include="..\FLPStore.CrossCutting\FLPStore.CrossCutting.csproj" />
+    <ProjectReference Include="..\FLPStore.Domain\FLPStore.Domain.csproj" />
+    <ProjectReference Include="..\FLPStore.ServiceDefaults\FLPStore.ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>

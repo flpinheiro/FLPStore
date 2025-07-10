@@ -9,7 +9,7 @@ public class Order : BasicEntity
     public AppUser? User { get; set; }
 
     public Address? ShippingAddress { get; set; }
-    public ICollection<OrderProduct> Products { get; set; } = [];
+    public ICollection<OrderItem> Products { get; set; } = [];
 
     public decimal TotalValue { get; set; }
 
@@ -17,12 +17,12 @@ public class Order : BasicEntity
     {
         User = cart.User;
         UserId = cart.UserId;
-        Products = SetOrderProducts(cart.Products);
+        Products = SetOrderProducts(cart.Items);
         ShippingAddress = shippingAddress;
         CalculateTotalValue();
     }
 
-    public Order(Guid userId, decimal totalValue, Address? shippingAddress, ICollection<OrderProduct> products)
+    public Order(Guid userId, decimal totalValue, Address? shippingAddress, ICollection<OrderItem> products)
     {
         UserId = userId;
         ShippingAddress = shippingAddress;
@@ -30,14 +30,14 @@ public class Order : BasicEntity
         TotalValue = totalValue;
     }
 
-    private static List<OrderProduct> SetOrderProducts(ICollection<ShoppingCartProduct> cartProducts)
+    private static List<OrderItem> SetOrderProducts(ICollection<ShoppingCartItem> cartProducts)
     {
-        List<OrderProduct> products = new(cartProducts.Count);
+        List<OrderItem> products = new(cartProducts.Count);
         foreach (var product in cartProducts)
         {
             if (product is not null && product.IsCheckout)
             {
-                products.Add(new OrderProduct(product.Product, product.ProductQuantity));
+                products.Add(new OrderItem(product.Product, product.ProductQuantity));
             }
         }
         return products;

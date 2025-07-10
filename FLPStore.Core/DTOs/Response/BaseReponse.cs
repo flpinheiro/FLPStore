@@ -1,13 +1,38 @@
-﻿namespace FLPStore.Core.DTOs.Response;
+﻿using FLPStore.CrossCutting.DTOs.Responses;
 
-public interface IBaseReponse<TData> : IBaseResponse where TData : class
+namespace FLPStore.Core.DTOs.Response;
+
+public record PaginatedBaseResponse<TData> : BaseResponse<TData>, IPaginatedBaseResponse<TData> where TData : class
 {
-    TData? Data { get; }
+    public PaginatedBaseResponse(TData data, int total) : base(data)
+    {
+        Total = total;
+    }
+    public int Total { get; }
 }
-public interface IBaseResponse
+
+public record BaseResponse<TData> : BaseResponse, IBaseResponse, IBaseResponse<TData> where TData : class
 {
-    bool IsSuccess { get; }
-    IEnumerable<string>? Messages { get;  }
+    public BaseResponse(TData? data) : base(true)
+    {
+        Data = data;
+    }
+
+    public BaseResponse(bool isSuccess = true, params IEnumerable<string> messages) : base(isSuccess, messages)
+    {
+    }
+
+    public TData? Data { get; }
 }
-public record BaseResponse(bool IsSuccess, params IEnumerable<string> Messages) : IBaseResponse;
-public record BaseReponse<TData>(TData Data) : BaseResponse(true), IBaseReponse<TData> where TData : class;
+
+public record BaseResponse : IBaseResponse
+{
+    public BaseResponse(bool isSuccess = true, params IEnumerable<string> messages)
+    {
+        IsSuccess = isSuccess;
+        Messages = messages;
+    }
+
+    public bool IsSuccess { get; }
+    public IEnumerable<string> Messages { get; }
+}

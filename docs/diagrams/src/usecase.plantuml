@@ -1,0 +1,64 @@
+@startuml guest
+actor Guest
+rectangle "Browsing" {
+    Guest --> (View Products)
+    Guest --> (Search Products)
+}
+@enduml
+
+@startuml user
+actor User
+rectangle "Shopping Cart" {
+    User --> (Add Item)
+    User --> (Remove Item)
+    User --> (View Cart)
+}
+rectangle "Checkout" {
+    User --> (Enter Shipping Info)
+    User --> (Select Payment Method)
+    User --> (Place Order)
+}
+@enduml
+
+@startuml admin
+actor Admin
+rectangle "Product Management" {
+    Admin --> (Add Product)
+    Admin --> (Edit Product)
+    Admin --> (Delete Product)
+}
+rectangle "Order Management" {
+    Admin --> (View Orders)
+    Admin --> (Update Order Status)
+}
+rectangle "User Management" {
+    Admin --> (View Users)
+    Admin --> (Manage User Accounts)
+}
+rectangle "Analytics" {
+    Admin --> (View Sales Reports)
+    Admin --> (Analyze User Behavior)
+}
+@enduml
+
+@startuml contributor
+actor Contributor
+rectangle "Content Management" {
+    Contributor --> (Add Content)
+    Contributor --> (Edit Content)
+    Contributor --> (Delete Content)
+}
+rectangle "Collaboration" {
+    Contributor --> (Review Content)
+    Contributor --> (Comment on Content)
+}
+rectangle "Feedback" {
+    Contributor --> (Submit Feedback)
+    Contributor --> (View Feedback)
+}
+rectangle "Notifications" {
+    Contributor --> (Receive Notifications)
+    Contributor --> (Manage Notifications)
+}
+@enduml
+
