@@ -43,22 +43,22 @@ jobs:
       run: git push --follow-tags origin master
 
     - name: ReportGenerator
-      uses: danielpalme/ReportGenerator-GitHub-Action@5.4.8
-      with:
-        reports: cobertura.xml
-        targetdir: coverage-report
-        reporttypes: Html;HtmlSummary;HtmlChart;lcov
-        historydir: history
+    #   uses: danielpalme/ReportGenerator-GitHub-Action@5.4.8
+    #   with:
+    #     reports: cobertura.xml
+    #     targetdir: coverage-report
+    #     reporttypes: Html;HtmlSummary;HtmlChart;lcov
+    #     historydir: history
 
-#    - name: Convert coverage to lcov
-#      run: dotnet tool run reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:Html
+    #- name: Convert coverage to lcov
+      run: dotnet tool run reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:Html
 
     - name: Upload coverage artifact
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
         path: coverage-report
-        
+
     - name: Deploy coverage to GitHub Pages
       if: github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v4
