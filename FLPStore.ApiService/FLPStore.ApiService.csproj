@@ -15,6 +15,7 @@
     <ProjectReference Include="..\FLPStore.Core\FLPStore.Core.csproj" />
     <ProjectReference Include="..\FLPStore.CrossCutting\FLPStore.CrossCutting.csproj" />
     <ProjectReference Include="..\FLPStore.Domain\FLPStore.Domain.csproj" />
+    <ProjectReference Include="..\FLPStore.Infra.SqlServer\FLPStore.Infra.SqlServer.csproj" />
     <ProjectReference Include="..\FLPStore.ServiceDefaults\FLPStore.ServiceDefaults.csproj" />
   </ItemGroup>
 

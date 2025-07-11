@@ -9,9 +9,9 @@ using Microsoft.Extensions.Logging;
 
 namespace FLPStore.Domain.Handlers.Products;
 
-public class GetProductHandler(ILogger<GetProductHandler> logger, IUnitOfWork unit, IMapper mapper) : IRequestHandler<GetProductRequest, IBaseResponse<ProductResponse>>
+public class GetProductHandler(ILogger<GetProductHandler> logger, IUnitOfWork unit, IMapper mapper) : IRequestHandler<GetProductRequest, IBaseResponse<IProductResponse>>
 {
-    public async Task<IBaseResponse<ProductResponse>> Handle(GetProductRequest request, CancellationToken cancellationToken)
+    public async Task<IBaseResponse<IProductResponse>> Handle(GetProductRequest request, CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
         logger.LogInformation("Handling GetProductRequest");

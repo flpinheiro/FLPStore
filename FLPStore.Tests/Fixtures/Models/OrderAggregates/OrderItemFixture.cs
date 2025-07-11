@@ -3,7 +3,7 @@ using FLPStore.Core.Models.ProductAggregates;
 
 namespace FLPStore.Tests.Fixtures.Models.OrderAggregates;
 
-internal class OrderItemFixture: BasicValueObjectFixture<OrderItem>
+internal class OrderItemFixture : BasicValueObjectFixture<OrderItem>
 {
     public OrderItemFixture()
     {

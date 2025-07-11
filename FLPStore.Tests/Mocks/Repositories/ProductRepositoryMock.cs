@@ -4,7 +4,6 @@ using FLPStore.CrossCutting.DTOs.Requests;
 using Moq;
 
 namespace FLPStore.Tests.Mocks.Repositories;
-
 internal class ProductRepositoryMock
 {
     public IProductRepository Object => Mock.Object;

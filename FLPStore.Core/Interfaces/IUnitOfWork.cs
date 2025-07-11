@@ -1,4 +1,5 @@
 ﻿using FLPStore.Core.Interfaces.Repositories;
+using FLPStore.Core.Interfaces.Services;
 
 namespace FLPStore.Core.Interfaces;
 
@@ -7,6 +8,8 @@ public interface IUnitOfWork : IDisposable
     IUserRepository Users { get; }
     IOrderRepository Orders { get; }
     IProductRepository Products { get; }
+
+    IJwtService JwtService { get; }
 
     /// <summary>
     /// Saves all changes made in this unit of work to the database.

@@ -3,7 +3,7 @@ using FLPStore.Core.Models.Shared;
 
 namespace FLPStore.Core.Models.UserAggragates;
 
-public class ShoppingCartItem : ValueObject 
+public class ShoppingCartItem : ValueObject
 {
     public Guid ProductId { get; set; }
     public Product? Product { get; set; }
@@ -12,7 +12,7 @@ public class ShoppingCartItem : ValueObject
     public bool IsCheckout { get; set; }
 
     public Guid UserId { get; set; }
-    public AppUser? User { get; set; }
+    public ShoppingCart? Cart { get; set; }
 
     protected override IEnumerable<object> GetEqualityComponents()
     {

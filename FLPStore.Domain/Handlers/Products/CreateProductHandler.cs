@@ -10,16 +10,16 @@ using Microsoft.Extensions.Logging;
 
 namespace FLPStore.Domain.Handlers.Products;
 
-public class CreateProductHandler(ILogger<CreateProductHandler> logger, IUnitOfWork unit, IMapper mapper) : IRequestHandler<CreateProductRequest, IBaseResponse<ProductResponse>>
+public class CreateProductHandler(ILogger<CreateProductHandler> logger, IUnitOfWork unit, IMapper mapper) : IRequestHandler<CreateProductRequest, IBaseResponse<IProductResponse>>
 {
-    public async Task<IBaseResponse<ProductResponse>> Handle(CreateProductRequest request, CancellationToken cancellationToken)
+    public async Task<IBaseResponse<IProductResponse>> Handle(CreateProductRequest request, CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
         logger.LogInformation("Handling CreateProductRequest");
 
         try
         {
-          await  unit.BeginTransactionAsync(cancellationToken);
+            await unit.BeginTransactionAsync(cancellationToken);
 
             var productEntity = mapper.Map<Product>(request);
 

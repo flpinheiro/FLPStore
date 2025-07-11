@@ -1,6 +1,11 @@
-﻿namespace FLPStore.Domain.Responses.Products;
+﻿using FLPStore.CrossCutting.DTOs.Responses;
 
-public record PaginatedProductResponse
+namespace FLPStore.Domain.Responses.Products;
+
+public record PaginatedProductResponse : IPaginatedProductResponse
 {
-
+    public Guid Id { get; init; }
+    public string? Title { get; init; }
+    public decimal Price { get; init; }
+    public bool IsOnStock { get; init; }
 }

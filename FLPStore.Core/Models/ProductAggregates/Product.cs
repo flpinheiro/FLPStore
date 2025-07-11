@@ -2,7 +2,7 @@
 
 namespace FLPStore.Core.Models.ProductAggregates;
 
-public class Product: BasicEntity
+public class Product : BasicEntity
 {
     public string? Title { get; set; }
     public string? Description { get; set; }

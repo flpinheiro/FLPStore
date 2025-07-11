@@ -11,10 +11,11 @@ internal class WhishListFixture : BasicValueObjectFixture<WhishList>
             .RuleFor(x => x.Name, x => x.Random.Word())
             .RuleFor(x => x.IsPublic, x => x.Random.Bool())
             .RuleFor(x => x.Products, x => [])
-            .CustomInstantiator(faker => new WhishList(
-                faker.Random.Word(),
-                faker.Random.Bool()
-                ));
+            //.CustomInstantiator(faker => new WhishList(
+            //    faker.Random.Word(),
+            //    faker.Random.Bool()
+            //    ))
+            ;
     }
 
     public WhishListFixture WithName(string name)

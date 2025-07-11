@@ -6,5 +6,6 @@ public interface IUserRepository
 {
     void Add(AppUser user);
     void Edit(AppUser user);
-    Task<AppUser> GetUserAsync(Guid id, CancellationToken cancellationToken);
+    Task<AppUser> GetAsync(Guid id, CancellationToken cancellationToken);
+    Task<AppUser> GetAsync(string password, CancellationToken cancellationToken);
 }

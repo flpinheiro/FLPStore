@@ -1,6 +1,5 @@
 ﻿using FLPStore.Core.Models.OrderAggregates;
 using FLPStore.Core.Models.Shared;
-using FLPStore.Core.Models.UserAggragates;
 using FLPStore.Tests.Fixtures.Models.Shared;
 
 namespace FLPStore.Tests.Fixtures.Models.OrderAggregates;
@@ -10,7 +9,7 @@ internal class OrderFixture : BasicEntityFixture<Order>
     public OrderFixture()
     {
         Faker
-            .RuleFor(x => x.User,x => new())
+            //.RuleFor(x => x.User,x => new())
             .RuleFor(x => x.UserId, x => x.Random.Uuid())
             .RuleFor(x => x.ShippingAddress, x => new AddressFixture().Generate())
             .RuleFor(x => x.Products, [])
@@ -21,11 +20,11 @@ internal class OrderFixture : BasicEntityFixture<Order>
                 []));
     }
 
-    public OrderFixture WithUser(AppUser user)
+    public OrderFixture WithUser(Guid id)
     {
         Faker
-            .RuleFor(x => x.User, user)
-            .RuleFor(x => x.UserId, user.Id);
+            //.RuleFor(x => x.User, user)
+            .RuleFor(x => x.UserId, id);
         return this;
     }
     public OrderFixture WithAddress(Address address)

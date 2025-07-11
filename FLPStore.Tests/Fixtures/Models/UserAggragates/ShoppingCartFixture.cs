@@ -8,7 +8,7 @@ internal class ShoppingCartFixture : BasicValueObjectFixture<ShoppingCart>
     {
         Faker
             .RuleFor(x => x.Items, x => [])
-            .RuleFor(x => x.User, x => null)
+            //.RuleFor(x => x.User, x => null)
             .RuleFor(x => x.UserId, x => x.Random.Uuid());
     }
     public ShoppingCartFixture WithProducts(ICollection<ShoppingCartItem> products)
@@ -16,9 +16,9 @@ internal class ShoppingCartFixture : BasicValueObjectFixture<ShoppingCart>
         Faker.RuleFor(x => x.Items, products);
         return this;
     }
-    public ShoppingCartFixture WithUser(AppUser user)
-    {
-        Faker.RuleFor(x => x.User, user);
-        return this;
-    }
+    //public ShoppingCartFixture WithUser(AppUser user)
+    //{
+    //    Faker.RuleFor(x => x.User, user);
+    //    return this;
+    //}
 }

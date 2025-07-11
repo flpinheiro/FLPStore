@@ -5,7 +5,6 @@ namespace FLPStore.Core.Models.UserAggragates;
 public class ShoppingCart : ValueObject
 {
     public Guid UserId { get; set; }
-    public AppUser? User { get; set; }
     public ICollection<ShoppingCartItem> Items { get; set; } = [];
 
     protected override IEnumerable<object> GetEqualityComponents()

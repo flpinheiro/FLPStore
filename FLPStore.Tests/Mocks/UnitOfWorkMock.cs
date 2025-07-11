@@ -1,10 +1,11 @@
 ﻿using FLPStore.Core.Interfaces;
 using FLPStore.Core.Interfaces.Repositories;
+using FLPStore.Core.Interfaces.Services;
 using Moq;
 
 namespace FLPStore.Tests.Mocks;
 
-internal class UnitOfWorkMock: IDisposable
+internal class UnitOfWorkMock : IDisposable
 {
     private bool disposedValue;
 
@@ -30,7 +31,12 @@ internal class UnitOfWorkMock: IDisposable
     {
         Mock.Setup(x => x.Users).Returns(userRepository);
         return this;
-    } 
+    }
+    public UnitOfWorkMock WithJwtService(IJwtService jwtService)
+    {
+        Mock.Setup(x => x.JwtService).Returns(jwtService);
+        return this;
+    }
     #endregion
 
     #region Setupers
@@ -48,7 +54,7 @@ internal class UnitOfWorkMock: IDisposable
             .Throws<TException>();
         return this;
     }
-    
+
     public UnitOfWorkMock VerifyBeginTransactionAsync(Times times)
     {
         Mock.Verify(x => x.BeginTransactionAsync(It.IsAny<CancellationToken>()), times);
@@ -68,7 +74,7 @@ internal class UnitOfWorkMock: IDisposable
             .Throws<TException>();
         return this;
     }
-    
+
     public UnitOfWorkMock VerifyCommitTransactionAsync(Times times)
     {
         Mock.Verify(x => x.CommitTransactionAsync(It.IsAny<CancellationToken>()), times);
@@ -141,6 +147,6 @@ internal class UnitOfWorkMock: IDisposable
         // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
-    } 
+    }
     #endregion
 }

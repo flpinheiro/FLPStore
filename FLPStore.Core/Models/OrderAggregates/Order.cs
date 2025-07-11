@@ -6,8 +6,6 @@ namespace FLPStore.Core.Models.OrderAggregates;
 public class Order : BasicEntity
 {
     public Guid UserId { get; set; }
-    public AppUser? User { get; set; }
-
     public Address? ShippingAddress { get; set; }
     public ICollection<OrderItem> Products { get; set; } = [];
 
@@ -15,7 +13,6 @@ public class Order : BasicEntity
 
     public Order(ShoppingCart cart, Address shippingAddress)
     {
-        User = cart.User;
         UserId = cart.UserId;
         Products = SetOrderProducts(cart.Items);
         ShippingAddress = shippingAddress;
@@ -43,5 +40,5 @@ public class Order : BasicEntity
         return products;
     }
     private void CalculateTotalValue() => TotalValue = Products.ToList().Sum(x => x.TotalValue);
-        
+
 }

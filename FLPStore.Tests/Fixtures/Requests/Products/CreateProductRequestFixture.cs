@@ -4,7 +4,7 @@ namespace FLPStore.Tests.Fixtures.Requests.Products;
 
 internal class CreateProductRequestFixture : BasicFixture<CreateProductRequest>
 {
-    public CreateProductRequestFixture()
+    public CreateProductRequestFixture() : base()
     {
         Faker.RuleFor(x => x.Title, x => x.Commerce.Product())
             .RuleFor(x => x.Description, x => x.Commerce.ProductDescription())

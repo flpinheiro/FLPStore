@@ -2,7 +2,6 @@
 using FLPStore.Domain.Handlers.Products;
 using FLPStore.Domain.Profiles;
 using FLPStore.Domain.Responses.Products;
-using FLPStore.Tests.Fixtures.Models.ProductAggregates;
 using FLPStore.Tests.Fixtures.Requests.Products;
 using FLPStore.Tests.Mocks;
 using FLPStore.Tests.Mocks.Repositories;
@@ -43,7 +42,7 @@ public class CreateProductHandlerTest
         Assert.NotNull(response);
         Assert.True(response.IsSuccess);
         Assert.Empty(response.Messages);
-        
+
         var data = Assert.IsType<ProductResponse>(response.Data);
 
         Assert.Equal(data.Title, request.Title);

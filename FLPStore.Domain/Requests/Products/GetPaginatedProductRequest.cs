@@ -5,4 +5,4 @@ using MediatR;
 
 namespace FLPStore.Domain.Requests.Products;
 
-public record GetPaginatedProductRequest: PaginateRequest, IRequest<IPaginatedBaseResponse<IEnumerable<PaginatedProductResponse>>>;
+public record GetPaginatedProductRequest : PaginateRequest, IRequest<IPaginatedBaseResponse<IEnumerable<PaginatedProductResponse>>>;

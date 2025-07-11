@@ -9,16 +9,16 @@ using Microsoft.Extensions.Logging;
 
 namespace FLPStore.Domain.Handlers.Products;
 
-public class DeleteProductHandler(ILogger<DeleteProductHandler> logger, IUnitOfWork unit, IMapper mapper) : IRequestHandler<DeleteProductRequest, IBaseResponse<ProductResponse>>
+public class DeleteProductHandler(ILogger<DeleteProductHandler> logger, IUnitOfWork unit, IMapper mapper) : IRequestHandler<DeleteProductRequest, IBaseResponse<IProductResponse>>
 {
-    public async Task<IBaseResponse<ProductResponse>> Handle(DeleteProductRequest request, CancellationToken cancellationToken)
+    public async Task<IBaseResponse<IProductResponse>> Handle(DeleteProductRequest request, CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
         logger.LogInformation("Handling DeleteProductRequest");
 
         try
         {
-          await  unit.BeginTransactionAsync(cancellationToken);
+            await unit.BeginTransactionAsync(cancellationToken);
             var product = await unit.Products.GetAsync(request.Id, cancellationToken);
             if (product is null)
             {
