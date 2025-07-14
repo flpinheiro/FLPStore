@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace FLPStore.Infra.SqlServer;
 
@@ -13,9 +15,17 @@ internal class InfraAssembly
 
 public static class InfraConfigurationExtensions
 {
-    public static void AddInfraConfiguration(this IServiceCollection services, IConfiguration configuration)
+    private static void AddInfraConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<SqlServerContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("SqlServerConnection")));
+            options.UseSqlServer(configuration.GetConnectionString("sqldata")));
+    }
+
+    public static IServiceCollection AddInfraConfiguration(this WebApplicationBuilder builder)
+    {
+        builder.AddSqlServerDbContext<SqlServerContext>("sqldata");
+        builder.Services.AddInfraConfiguration(builder.Configuration);
+
+        return builder.Services;
     }
 }

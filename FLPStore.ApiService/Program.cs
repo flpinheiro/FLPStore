@@ -1,4 +1,5 @@
 using FLPStore.Domain;
+using FLPStore.Infra.SqlServer;
 using FLPStore.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddProblemDetails();
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.ConfigureDomainAssembly();
+
+builder.AddInfraConfiguration();
 
 var app = builder.Build();
 

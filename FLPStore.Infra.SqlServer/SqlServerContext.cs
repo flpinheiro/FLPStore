@@ -1,13 +1,23 @@
-﻿using FLPStore.Core.Models.ProductAggregates;
+﻿using FLPStore.Core.Models.OrderAggregates;
+using FLPStore.Core.Models.ProductAggregates;
 using FLPStore.Core.Models.UserAggragates;
 using Microsoft.EntityFrameworkCore;
 
 namespace FLPStore.Infra.SqlServer;
 
-public class SqlServerContext(DbContextOptions<SqlServerContext> options) : DbContext(options)
+public class SqlServerContext : DbContext
 {
-    public DbSet<Product> Products { get; set; }
-    public DbSet<AppUser> Users { get; set; }
+    public SqlServerContext(DbContextOptions options) : base(options)
+    {
+    }
+
+    protected SqlServerContext()
+    {
+    }
+
+    public virtual DbSet<Product> Products { get; set; }
+    public virtual DbSet<AppUser> Users { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Configure your entity mappings here

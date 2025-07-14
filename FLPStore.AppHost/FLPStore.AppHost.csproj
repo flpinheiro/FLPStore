@@ -1,24 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+	<Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <IsAspireHost>true</IsAspireHost>
-    <UserSecretsId>6d400d0f-e4a4-4a32-acc3-34dda3ac4a73</UserSecretsId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsAspireHost>true</IsAspireHost>
+		<UserSecretsId>6d400d0f-e4a4-4a32-acc3-34dda3ac4a73</UserSecretsId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\FLPStore.ApiService\FLPStore.ApiService.csproj" />
-    <ProjectReference Include="..\FLPStore.Web\FLPStore.Web.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\FLPStore.ApiService\FLPStore.ApiService.csproj" />
+		<ProjectReference Include="..\FLPStore.Core\FLPStore.Core.csproj" />
+		<ProjectReference Include="..\FLPStore.CrossCutting\FLPStore.CrossCutting.csproj" />
+		<ProjectReference Include="..\FLPStore.Domain\FLPStore.Domain.csproj" />
+		<ProjectReference Include="..\FLPStore.Infra.SqlServer.MigrationService\FLPStore.Infra.SqlServer.MigrationService.csproj" />
+		<ProjectReference Include="..\FLPStore.Infra.SqlServer\FLPStore.Infra.SqlServer.csproj" />
+		<ProjectReference Include="..\FLPStore.Web\FLPStore.Web.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
-    <PackageReference Include="Aspire.Hosting.Redis" Version="9.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.1" />
+		<PackageReference Include="Aspire.Hosting.Redis" Version="9.3.1" />
+		<PackageReference Include="Aspire.Hosting.SqlServer" Version="9.3.2" />
+	</ItemGroup>
 
 </Project>
