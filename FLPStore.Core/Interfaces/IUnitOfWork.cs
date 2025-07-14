@@ -9,7 +9,7 @@ public interface IUnitOfWork : IDisposable
     IOrderRepository Orders { get; }
     IProductRepository Products { get; }
 
-    IJwtService JwtService { get; }
+    IIdentityService IdentityService { get; }
 
     /// <summary>
     /// Saves all changes made in this unit of work to the database.

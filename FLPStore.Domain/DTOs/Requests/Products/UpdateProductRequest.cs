@@ -2,12 +2,12 @@
 using FLPStore.CrossCutting.DTOs.Responses;
 using MediatR;
 
-namespace FLPStore.Domain.Requests.Products;
+namespace FLPStore.Domain.DTOs.Requests.Products;
 
-public record CreateProductRequest : IRequest<IBaseResponse<IProductResponse>>, ICreateProductRequest
+public record UpdateProductRequest : IRequest<IBaseResponse<IProductResponse>>, IUpdateProductRequest
 {
+    public Guid Id { get; set; }
     public string? Title { get; set; }
     public decimal Price { get; set; }
     public string? Description { get; set; }
-    public int Quantity { get; set; }
 }

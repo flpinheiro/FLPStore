@@ -1,6 +1,6 @@
 ﻿using FLPStore.Core.Models.UserAggragates;
-using FLPStore.Domain.Requests.Users;
-using FLPStore.Domain.Responses.Users;
+using FLPStore.Domain.DTOs.Requests.Users;
+using FLPStore.Domain.DTOs.Responses.Users;
 
 namespace FLPStore.Domain.Profiles;
 

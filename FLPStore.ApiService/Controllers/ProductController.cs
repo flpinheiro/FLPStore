@@ -1,4 +1,4 @@
-﻿using FLPStore.Domain.Requests.Products;
+﻿using FLPStore.Domain.DTOs.Requests.Products;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

@@ -10,7 +10,7 @@ internal class WhishListFixture : BasicValueObjectFixture<WhishList>
         Faker
             .RuleFor(x => x.Name, x => x.Random.Word())
             .RuleFor(x => x.IsPublic, x => x.Random.Bool())
-            .RuleFor(x => x.Products, x => [])
+            .RuleFor(x => x.Items, x => [])
             //.CustomInstantiator(faker => new WhishList(
             //    faker.Random.Word(),
             //    faker.Random.Bool()
@@ -32,7 +32,7 @@ internal class WhishListFixture : BasicValueObjectFixture<WhishList>
 
     public WhishListFixture WithProducts(ICollection<Product> products)
     {
-        Faker.RuleFor(x => x.Products, products);
+        Faker.RuleFor(x => x.Items, products);
         return this;
     }
 }

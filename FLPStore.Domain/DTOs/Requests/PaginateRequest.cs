@@ -1,7 +1,7 @@
 ﻿using FLPStore.CrossCutting.Constants;
 using FLPStore.CrossCutting.DTOs.Requests;
 
-namespace FLPStore.Core.DTOs.Requests;
+namespace FLPStore.Domain.DTOs.Requests;
 
 public record PaginateRequest : IPaginateRequest
 {

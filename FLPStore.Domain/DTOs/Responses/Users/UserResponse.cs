@@ -1,6 +1,6 @@
 ﻿using FLPStore.CrossCutting.DTOs.Responses;
 
-namespace FLPStore.Domain.Responses.Users;
+namespace FLPStore.Domain.DTOs.Responses.Users;
 
 public class UserResponse : IUserResponse
 {

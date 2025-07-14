@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using FLPStore.Core.DTOs.Response;
 using FLPStore.Core.Interfaces;
 using FLPStore.Core.Models.ProductAggregates;
 using FLPStore.CrossCutting.DTOs.Responses;
-using FLPStore.Domain.Requests.Products;
-using FLPStore.Domain.Responses.Products;
+using FLPStore.Domain.DTOs.Requests.Products;
+using FLPStore.Domain.DTOs.Responses;
+using FLPStore.Domain.DTOs.Responses.Products;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

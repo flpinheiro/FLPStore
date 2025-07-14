@@ -6,15 +6,16 @@ namespace FLPStore.Core.Models.OrderAggregates;
 public class Order : BasicEntity
 {
     public Guid UserId { get; set; }
+
     public Address? ShippingAddress { get; set; }
-    public ICollection<OrderItem> Products { get; set; } = [];
+    public ICollection<OrderItem> Items { get; set; } = [];
 
     public decimal TotalValue { get; set; }
 
     public Order(ShoppingCart cart, Address shippingAddress)
     {
         UserId = cart.UserId;
-        Products = SetOrderProducts(cart.Items);
+        Items = SetOrderProducts(cart.Items);
         ShippingAddress = shippingAddress;
         CalculateTotalValue();
     }
@@ -23,7 +24,7 @@ public class Order : BasicEntity
     {
         UserId = userId;
         ShippingAddress = shippingAddress;
-        Products = products;
+        Items = products;
         TotalValue = totalValue;
     }
 
@@ -34,11 +35,11 @@ public class Order : BasicEntity
         {
             if (product is not null && product.IsCheckout)
             {
-                products.Add(new OrderItem(product.Product, product.ProductQuantity));
+                products.Add(new OrderItem(product.Product, product.Quantity));
             }
         }
         return products;
     }
-    private void CalculateTotalValue() => TotalValue = Products.ToList().Sum(x => x.TotalValue);
+    private void CalculateTotalValue() => TotalValue = Items.ToList().Sum(x => x.TotalValue);
 
 }

@@ -1,4 +1,5 @@
-﻿using FLPStore.Core.Models.Shared;
+﻿using FLPStore.Core.Models.OrderAggregates;
+using FLPStore.Core.Models.Shared;
 
 namespace FLPStore.Core.Models.UserAggragates;
 
@@ -14,5 +15,7 @@ public class AppUser : BasicEntity
     public ICollection<WhishList> WhishLists { get; set; } = [];
 
     public ShoppingCart ShoppingCart { get; set; } = new();
+
+    public ICollection<Order> Orders { get; set; } = [];
 
 }

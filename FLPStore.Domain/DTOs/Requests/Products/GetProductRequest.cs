@@ -2,7 +2,7 @@
 using FLPStore.CrossCutting.DTOs.Responses;
 using MediatR;
 
-namespace FLPStore.Domain.Requests.Products;
+namespace FLPStore.Domain.DTOs.Requests.Products;
 
 public record GetProductRequest : IRequest<IBaseResponse<IProductResponse>>, IGetProductRequest
 {

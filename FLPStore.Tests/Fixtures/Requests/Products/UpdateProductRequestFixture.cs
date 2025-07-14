@@ -1,4 +1,4 @@
-﻿using FLPStore.Domain.Requests.Products;
+﻿using FLPStore.Domain.DTOs.Requests.Products;
 
 namespace FLPStore.Tests.Fixtures.Requests.Products;
 

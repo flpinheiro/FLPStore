@@ -1,4 +1,4 @@
-﻿using FLPStore.Domain.Requests.Users;
+﻿using FLPStore.Domain.DTOs.Requests.Users;
 
 namespace FLPStore.Tests.Fixtures.Requests.Users;
 

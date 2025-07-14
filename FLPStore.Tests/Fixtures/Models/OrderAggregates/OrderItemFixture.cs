@@ -9,7 +9,7 @@ internal class OrderItemFixture : BasicValueObjectFixture<OrderItem>
     {
         Faker
             .RuleFor(x => x.ProductId, x => x.Random.Uuid())
-            .RuleFor(x => x.Name, x => x.Commerce.ProductName())
+            .RuleFor(x => x.Title, x => x.Commerce.ProductName())
             .RuleFor(x => x.UnitValue, x => x.Random.Decimal(1, 100))
             .RuleFor(x => x.Quantity, x => x.Random.Int(1, 10));
     }

@@ -12,7 +12,7 @@ internal class OrderFixture : BasicEntityFixture<Order>
             //.RuleFor(x => x.User,x => new())
             .RuleFor(x => x.UserId, x => x.Random.Uuid())
             .RuleFor(x => x.ShippingAddress, x => new AddressFixture().Generate())
-            .RuleFor(x => x.Products, [])
+            .RuleFor(x => x.Items, [])
             .CustomInstantiator(x => new(
                 x.Random.Uuid(),
                 0,
@@ -36,7 +36,7 @@ internal class OrderFixture : BasicEntityFixture<Order>
     public OrderFixture WithProducts(ICollection<OrderItem> products)
     {
         Faker
-            .RuleFor(x => x.Products, products);
+            .RuleFor(x => x.Items, products);
         return this;
     }
 }

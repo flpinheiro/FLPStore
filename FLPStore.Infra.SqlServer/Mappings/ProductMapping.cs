@@ -1,4 +1,5 @@
 ﻿using FLPStore.Core.Models.ProductAggregates;
+using FLPStore.Core.Models.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

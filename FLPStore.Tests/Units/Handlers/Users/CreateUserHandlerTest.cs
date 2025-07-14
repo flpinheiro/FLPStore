@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using FLPStore.Domain.DTOs.Responses.Users;
 using FLPStore.Domain.Handlers.Users;
 using FLPStore.Domain.Profiles;
-using FLPStore.Domain.Responses.Users;
 using FLPStore.Tests.Fixtures.Requests.Users;
 using FLPStore.Tests.Mocks;
 using FLPStore.Tests.Mocks.Repositories;
+using FLPStore.Tests.Mocks.Services;
 using FLPStore.Tests.Stubs;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -17,6 +18,7 @@ public class CreateUserHandlerTest
     private readonly UnitOfWorkMock unit = new();
     private readonly IMapper mapper = MapperStub.GetMapper(new UserProfile());
     private readonly UserRepositoryMock Users = new();
+    private readonly IdentityServiceMock IdentityService = new ();
 
 
     private readonly CreateUserHandler handler;
@@ -26,6 +28,7 @@ public class CreateUserHandlerTest
         handler = new CreateUserHandler(logger.Object, unit.Object, mapper);
 
         unit.WithUserRepository(Users.Object);
+        unit.WithIdentityService(IdentityService.Object);
     }
 
     [Fact]
@@ -40,6 +43,8 @@ public class CreateUserHandlerTest
             .SetupRollbackTransactionAsync();
 
         Users.SetupAdd();
+        IdentityService.SetupCreateUserAsync();
+
 
         // Act
         var response = await handler.Handle(request, CancellationToken.None);
@@ -59,6 +64,7 @@ public class CreateUserHandlerTest
             .VerifyRollBackTransactionAsync(Times.Never());
 
         Users.VerifyAdd(Times.Once());
+        IdentityService.VerifyCreateUserAsync(Times.Once());
     }
 
     [Fact]
@@ -73,6 +79,7 @@ public class CreateUserHandlerTest
             .SetupRollbackTransactionAsync();
 
         Users.SetupAdd<Exception>();
+        IdentityService.SetupCreateUserAsync();
 
         // Act
         var response = await handler.Handle(request, CancellationToken.None);
@@ -87,5 +94,6 @@ public class CreateUserHandlerTest
             .VerifyRollBackTransactionAsync(Times.Once());
 
         Users.VerifyAdd(Times.Once());
+        IdentityService.VerifyCreateUserAsync(Times.Once());
     }
 }

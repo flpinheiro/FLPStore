@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using FLPStore.Core.DTOs.Response;
 using FLPStore.Core.Interfaces;
 using FLPStore.CrossCutting.DTOs.Responses;
-using FLPStore.Domain.Requests.Users;
-using FLPStore.Domain.Responses.Users;
+using FLPStore.Domain.DTOs.Requests.Users;
+using FLPStore.Domain.DTOs.Responses;
+using FLPStore.Domain.DTOs.Responses.Users;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -26,7 +26,8 @@ public class LoginUserHandler(ILogger<LoginUserHandler> logger, IUnitOfWork unit
         logger.LogInformation("User found. Proceeding with login.");
 
         var response = mapper.Map<LoginUserResponse>(user);
-        response.Token = unit.JwtService.GenerateToken(user.Email);
+        var userToken = new TokenUserRequest(user.Email);
+        response.Token = unit.IdentityService.GenerateToken(userToken);
 
         return new BaseResponse<ILoginUserResponse>(response);
     }

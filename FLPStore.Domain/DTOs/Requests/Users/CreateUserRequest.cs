@@ -2,7 +2,7 @@
 using FLPStore.CrossCutting.DTOs.Responses;
 using MediatR;
 
-namespace FLPStore.Domain.Requests.Users;
+namespace FLPStore.Domain.DTOs.Requests.Users;
 
 public class CreateUserRequest : ICreateUserRequest, IRequest<IBaseResponse<IUserResponse>>
 {

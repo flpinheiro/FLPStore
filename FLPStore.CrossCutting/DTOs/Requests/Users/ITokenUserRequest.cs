@@ -1,7 +1,6 @@
 ﻿namespace FLPStore.CrossCutting.DTOs.Requests.Users;
 
-public interface ILoginUserRequest
+public interface ITokenUserRequest
 {
     string Email { get; set; }
-    string Password { get; set; }
 }

@@ -32,9 +32,9 @@ internal class UnitOfWorkMock : IDisposable
         Mock.Setup(x => x.Users).Returns(userRepository);
         return this;
     }
-    public UnitOfWorkMock WithJwtService(IJwtService jwtService)
+    public UnitOfWorkMock WithIdentityService(IIdentityService jwtService)
     {
-        Mock.Setup(x => x.JwtService).Returns(jwtService);
+        Mock.Setup(x => x.IdentityService).Returns(jwtService);
         return this;
     }
     #endregion

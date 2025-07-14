@@ -1,6 +1,6 @@
 ﻿using FLPStore.CrossCutting.DTOs.Responses;
 
-namespace FLPStore.Core.DTOs.Response;
+namespace FLPStore.Domain.DTOs.Responses;
 
 public record PaginatedBaseResponse<TData> : BaseResponse<TData>, IPaginatedBaseResponse<TData> where TData : class
 {

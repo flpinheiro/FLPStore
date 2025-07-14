@@ -1,4 +1,5 @@
 using FLPStore.Domain;
+using FLPStore.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 

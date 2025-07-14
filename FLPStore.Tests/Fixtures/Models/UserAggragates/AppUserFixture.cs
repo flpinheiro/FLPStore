@@ -15,7 +15,8 @@ internal class AppUserFixture : BasicEntityFixture<AppUser>
             .RuleFor(x => x.Addresses, x => [])
             .RuleFor(x => x.Phones, x => [])
             .RuleFor(x => x.WhishLists, x => [])
-            .RuleFor(x => x.ShoppingCart, x => new());
+            .RuleFor(x => x.ShoppingCart, x => new())
+            .RuleFor(x => x.Orders, x => []);
     }
     public AppUserFixture WithAddresses(ICollection<Address> addresses)
     {

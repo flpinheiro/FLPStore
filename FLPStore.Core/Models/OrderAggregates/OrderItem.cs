@@ -6,7 +6,8 @@ namespace FLPStore.Core.Models.OrderAggregates;
 public class OrderItem : ValueObject
 {
     public Guid ProductId { get; set; }
-    public string? Name { get; set; }
+    public Guid OrderId { get; set; }
+    public string? Title { get; set; }
     public int Quantity { get; set; }
     public decimal UnitValue { get; set; }
     public decimal TotalValue => Quantity * UnitValue;
@@ -19,7 +20,7 @@ public class OrderItem : ValueObject
         ArgumentNullException.ThrowIfNull(product, nameof(product));
 
         ProductId = product.Id ?? throw new ArgumentNullException(nameof(product));
-        Name = product.Title ?? throw new ArgumentNullException(nameof(product));
+        Title = product.Title ?? throw new ArgumentNullException(nameof(product));
         Quantity = quantity;
         UnitValue = product.Price;
     }
@@ -27,5 +28,6 @@ public class OrderItem : ValueObject
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return ProductId;
+        yield return OrderId;
     }
 }

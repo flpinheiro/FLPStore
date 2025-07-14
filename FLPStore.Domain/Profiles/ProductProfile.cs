@@ -1,6 +1,6 @@
 ﻿using FLPStore.Core.Models.ProductAggregates;
-using FLPStore.Domain.Requests.Products;
-using FLPStore.Domain.Responses.Products;
+using FLPStore.Domain.DTOs.Requests.Products;
+using FLPStore.Domain.DTOs.Responses.Products;
 
 namespace FLPStore.Domain.Profiles;
 

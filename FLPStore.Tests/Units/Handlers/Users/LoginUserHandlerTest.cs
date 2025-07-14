@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using FLPStore.Domain.DTOs.Requests.Users;
+using FLPStore.Domain.DTOs.Responses.Users;
 using FLPStore.Domain.Handlers.Users;
 using FLPStore.Domain.Profiles;
-using FLPStore.Domain.Requests.Users;
-using FLPStore.Domain.Responses.Users;
 using FLPStore.Tests.Fixtures.Models.UserAggragates;
 using FLPStore.Tests.Mocks;
 using FLPStore.Tests.Mocks.Repositories;
@@ -19,7 +19,7 @@ public class LoginUserHandlerTest
     private readonly UnitOfWorkMock unit = new();
     private readonly IMapper mapper = MapperStub.GetMapper(new UserProfile());
     private readonly UserRepositoryMock Users = new();
-    private readonly JwtServiceMock jwtService = new();
+    private readonly IdentityServiceMock jwtService = new();
 
     private readonly LoginUserHandler handler;
 
@@ -27,7 +27,7 @@ public class LoginUserHandlerTest
     {
         handler = new LoginUserHandler(logger.Object, unit.Object, mapper);
         unit.WithUserRepository(Users.Object);
-        unit.WithJwtService(jwtService.Object);
+        unit.WithIdentityService(jwtService.Object);
     }
 
     [Fact]

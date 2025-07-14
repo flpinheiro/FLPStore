@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using FLPStore.Domain.DTOs.Responses.Products;
 using FLPStore.Domain.Handlers.Products;
 using FLPStore.Domain.Profiles;
-using FLPStore.Domain.Responses.Products;
 using FLPStore.Tests.Fixtures.Requests.Products;
 using FLPStore.Tests.Mocks;
 using FLPStore.Tests.Mocks.Repositories;

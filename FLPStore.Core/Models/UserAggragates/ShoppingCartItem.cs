@@ -8,7 +8,7 @@ public class ShoppingCartItem : ValueObject
     public Guid ProductId { get; set; }
     public Product? Product { get; set; }
 
-    public int ProductQuantity { get; set; }
+    public int Quantity { get; set; }
     public bool IsCheckout { get; set; }
 
     public Guid UserId { get; set; }
