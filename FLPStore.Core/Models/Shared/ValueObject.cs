@@ -5,11 +5,11 @@ public abstract class ValueObject //: IEquatable<ValueObject>
     protected abstract IEnumerable<object> GetEqualityComponents();
     protected static bool EqualOperator(ValueObject left, ValueObject right)
     {
-        if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
+        if (left is null ^ right is null)
         {
             return false;
         }
-        return ReferenceEquals(left, right) || left.Equals(right);
+        return ReferenceEquals(left, right) || (left?.Equals(right) ?? false);
     }
 
     protected static bool NotEqualOperator(ValueObject left, ValueObject right)

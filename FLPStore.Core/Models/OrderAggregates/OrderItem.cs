@@ -6,6 +6,7 @@ namespace FLPStore.Core.Models.OrderAggregates;
 public class OrderItem : ValueObject
 {
     public Guid ProductId { get; set; }
+    public Product? Product { get; set; }
     public Guid OrderId { get; set; }
     public string? Title { get; set; }
     public int Quantity { get; set; }

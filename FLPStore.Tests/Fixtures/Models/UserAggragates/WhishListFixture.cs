@@ -30,9 +30,9 @@ internal class WhishListFixture : BasicValueObjectFixture<WhishList>
         return this;
     }
 
-    public WhishListFixture WithProducts(ICollection<Product> products)
-    {
-        Faker.RuleFor(x => x.Items, products);
-        return this;
-    }
+    //public WhishListFixture WithProducts(ICollection<Product> products)
+    //{
+    //    Faker.RuleFor(x => x.Items, products);
+    //    return this;
+    //}
 }

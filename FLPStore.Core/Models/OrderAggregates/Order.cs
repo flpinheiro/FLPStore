@@ -8,9 +8,14 @@ public class Order : BasicEntity
     public Guid UserId { get; set; }
 
     public Address? ShippingAddress { get; set; }
+    public Phone? ShippingPhone { get; set; }
     public ICollection<OrderItem> Items { get; set; } = [];
 
     public decimal TotalValue { get; set; }
+    public Order()
+    {
+        
+    }
 
     public Order(ShoppingCart cart, Address shippingAddress)
     {
