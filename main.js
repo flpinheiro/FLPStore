@@ -213,7 +213,7 @@ var assemblies = [
   {
     "name": "FLPStore.AppHost",
     "classes": [
-      { "name": "Program", "rp": "FLPStore.AppHost_Program.html", "cl": 0, "ucl": 24, "cal": 24, "tl": 32, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Program", "rp": "FLPStore.AppHost_Program.html", "cl": 0, "ucl": 33, "cal": 33, "tl": 41, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "FLPStore.Core",
