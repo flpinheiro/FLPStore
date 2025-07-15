@@ -6,7 +6,6 @@ on:
     types:
       - completed
 
-
 jobs:
   build:
 
@@ -39,7 +38,4 @@ jobs:
       run: echo "version=$(dotnet tool run versionize inspect)" >> $GITHUB_OUTPUT
 
     - name: git push changelog
-      run: |
-        git add .
-        git commit -m "chore(release): ${{ steps.get_version.outputs.version }} update"
-        git push --follow-tags origin master
+      run: git push --follow-tags origin master

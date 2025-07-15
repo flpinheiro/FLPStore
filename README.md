@@ -46,12 +46,22 @@ See Code coverage [here](https://flpinheiro.github.io/FLPStore/)
     * delete Address
 
 * Shopping Cart
-    * Add product
-    * Remove Product
-    * Checkout
+    * Add product to cart
+    * Remove Product from cart
+    * update Product on cart
+    * Checkout => Create Order
+    * clear
+
+* order
+    * Get Order by Id
+    * Get order paginated
 
 * Wish List
     * Create Whish list
     * Add Product to wish list
     * Remove Product from Wish list
+    * Delete Wish list
+    * get Wish list by Id
+    * get Wish list paginated
+    * Update Wish list
     

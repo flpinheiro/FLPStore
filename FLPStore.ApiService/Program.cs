@@ -1,3 +1,5 @@
+using FLPStore.ApiService;
+using FLPStore.Core.Interfaces;
 using FLPStore.Domain;
 using FLPStore.Infra.SqlServer;
 using FLPStore.ServiceDefaults;
@@ -13,7 +15,10 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.ConfigureDomainAssembly();
 
-builder.AddInfraConfiguration();
+builder.AddSqlServerInfra();
+builder.AddStandardDocumentation();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
@@ -23,6 +28,7 @@ app.UseExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerDoc();
 }
 
 app.UseHttpsRedirection();

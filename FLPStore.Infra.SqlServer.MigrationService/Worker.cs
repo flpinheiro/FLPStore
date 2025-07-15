@@ -19,7 +19,7 @@ public class Worker(
         try
         {
             using var scope = serviceProvider.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<SqlServerContext>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<SqlServerDbContext>();
 
             await EnsureDatabaseAsync(dbContext, cancellationToken);
             await RunMigrationAsync(dbContext, cancellationToken);
@@ -34,7 +34,7 @@ public class Worker(
         hostApplicationLifetime.StopApplication();
     }
 
-    private static async Task EnsureDatabaseAsync(SqlServerContext dbContext, CancellationToken cancellationToken)
+    private static async Task EnsureDatabaseAsync(SqlServerDbContext dbContext, CancellationToken cancellationToken)
     {
         var dbCreator = dbContext.GetService<IRelationalDatabaseCreator>();
 
@@ -50,7 +50,7 @@ public class Worker(
         });
     }
 
-    private static async Task RunMigrationAsync(SqlServerContext dbContext, CancellationToken cancellationToken)
+    private static async Task RunMigrationAsync(SqlServerDbContext dbContext, CancellationToken cancellationToken)
     {
         var strategy = dbContext.Database.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
@@ -62,7 +62,7 @@ public class Worker(
         });
     }
 
-    private static async Task SeedDataAsync(SqlServerContext dbContext, CancellationToken cancellationToken)
+    private static async Task SeedDataAsync(SqlServerDbContext dbContext, CancellationToken cancellationToken)
     {
         var strategy = dbContext.Database.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>

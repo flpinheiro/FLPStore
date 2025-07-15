@@ -1,7 +1,7 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 # https://www.nuget.org/packages/Versionize
-# 
+
 name: .NET
 
 on:
@@ -33,23 +33,6 @@ jobs:
     - name: Restore tools
       run: dotnet tool restore
 
-    # - name: add git credentials
-    #   run: |
-    #     git config --global user.name "github-actions[bot]"
-    #     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-    # - name: Run Versioning
-    #   run: dotnet tool run versionize
-    # - name: git push changelog
-    #   run: git push --follow-tags origin master
-
-    # - name: ReportGenerator
-    #   uses: danielpalme/ReportGenerator-GitHub-Action@5.4.8
-    #   with:
-    #     reports: cobertura.xml
-    #     targetdir: coverage-report
-    #     reporttypes: Html;HtmlSummary;HtmlChart;lcov
-    #     historydir: history
-
     - name: Convert coverage to lcov
       run: dotnet tool run reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:Html
 
@@ -65,4 +48,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./coverage-report
-

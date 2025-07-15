@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FLPStore.Infra.SqlServer.Data.Migrations
 {
-    [DbContext(typeof(SqlServerContext))]
+    [DbContext(typeof(SqlServerDbContext))]
     [Migration("20250715163720_InitialMigration")]
     partial class InitialMigration
     {

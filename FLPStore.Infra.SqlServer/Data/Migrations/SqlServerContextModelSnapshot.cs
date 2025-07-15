@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FLPStore.Infra.SqlServer.Data.Migrations
 {
-    [DbContext(typeof(SqlServerContext))]
+    [DbContext(typeof(SqlServerDbContext))]
     partial class SqlServerContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

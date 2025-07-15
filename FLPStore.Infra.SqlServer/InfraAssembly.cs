@@ -15,17 +15,9 @@ internal class InfraAssembly
 
 public static class InfraConfigurationExtensions
 {
-    private static void AddInfraConfiguration(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddSqlServerInfra(this IHostApplicationBuilder builder)
     {
-        services.AddDbContext<SqlServerContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("sqldata")));
-    }
-
-    public static IServiceCollection AddInfraConfiguration(this WebApplicationBuilder builder)
-    {
-        builder.AddSqlServerDbContext<SqlServerContext>("sqldata");
-        builder.Services.AddInfraConfiguration(builder.Configuration);
-
+        builder.AddSqlServerDbContext<SqlServerDbContext>("sqldata");
         return builder.Services;
     }
 }

@@ -7,13 +7,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace FLPStore.Infra.SqlServer;
 
-public class SqlServerContext : DbContext
+public class SqlServerDbContext : DbContext
 {
-    public SqlServerContext(DbContextOptions options) : base(options)
+    public SqlServerDbContext(DbContextOptions options) : base(options)
     {
     }
 
-    protected SqlServerContext()
+    protected SqlServerDbContext()
     {
     }
 
@@ -31,18 +31,18 @@ public class SqlServerContext : DbContext
 }
 
 
-public class SqlServerContextFactory : IDesignTimeDbContextFactory<SqlServerContext>
+public class SqlServerContextFactory : IDesignTimeDbContextFactory<SqlServerDbContext>
 {
-    public SqlServerContext CreateDbContext(string[] args)
+    public SqlServerDbContext CreateDbContext(string[] args)
     {
         var configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json")
         .Build();
 
-        var optionsBuilder = new DbContextOptionsBuilder<SqlServerContext>();
+        var optionsBuilder = new DbContextOptionsBuilder<SqlServerDbContext>();
         optionsBuilder.UseSqlServer(configuration.GetConnectionString("sqldata"));
 
-        return new SqlServerContext(optionsBuilder.Options);
+        return new SqlServerDbContext(optionsBuilder.Options);
     }
 }
