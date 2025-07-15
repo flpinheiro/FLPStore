@@ -1,0 +1,49 @@
+name: Version and Release
+
+on:
+  workflow_run:
+    workflows: [".NET"]
+    types:
+      - completed
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # required for versionize to work correctly
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+        dotnet-quality : 'ga'
+
+    - name: Restore tools
+      run: dotnet tool restore 
+
+    - name: Run Versioning
+      run: dotnet tool run versionize #--config-file .versionize
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # required for pushing changes
+    - name: get version
+      id: get_version
+      run: echo "version=$(dotnet tool run versionize inspect)" >> $GITHUB_OUTPUT
+
+    - name: add git credentials
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git push --follow-tags origin master
+
+    # - name: git push changelog tags
+    #   run: git push --follow-tags origin master
+
+    - name: git push changelog
+      run: |
+        git add .
+        git commit -m "chore(release): ${{ steps.get_version.outputs.version }} update"
+        git push --follow-tags origin master
