@@ -22,6 +22,11 @@ jobs:
         dotnet-version: 9.0.x
         dotnet-quality : 'ga'
 
+    - name: add git credentials
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
     - name: Restore tools
       run: dotnet tool restore 
 
@@ -32,15 +37,6 @@ jobs:
     - name: get version
       id: get_version
       run: echo "version=$(dotnet tool run versionize inspect)" >> $GITHUB_OUTPUT
-
-    - name: add git credentials
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git push --follow-tags origin master
-
-    # - name: git push changelog tags
-    #   run: git push --follow-tags origin master
 
     - name: git push changelog
       run: |

@@ -30,8 +30,8 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
 
-    # - name: Restore tools
-    #   run: dotnet tool restore
+    - name: Restore tools
+      run: dotnet tool restore
 
     # - name: add git credentials
     #   run: |
@@ -42,16 +42,16 @@ jobs:
     # - name: git push changelog
     #   run: git push --follow-tags origin master
 
-    - name: ReportGenerator
-      uses: danielpalme/ReportGenerator-GitHub-Action@5.4.8
-      with:
-        reports: cobertura.xml
-        targetdir: coverage-report
-        reporttypes: Html;HtmlSummary;HtmlChart;lcov
-        historydir: history
+    # - name: ReportGenerator
+    #   uses: danielpalme/ReportGenerator-GitHub-Action@5.4.8
+    #   with:
+    #     reports: cobertura.xml
+    #     targetdir: coverage-report
+    #     reporttypes: Html;HtmlSummary;HtmlChart;lcov
+    #     historydir: history
 
-    #- name: Convert coverage to lcov
-      # run: dotnet tool run reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:Html
+    - name: Convert coverage to lcov
+      run: dotnet tool run reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:Html
 
     - name: Upload coverage artifact
       uses: actions/upload-artifact@v4
