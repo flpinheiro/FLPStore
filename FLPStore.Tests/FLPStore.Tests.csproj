@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FLPStore.AppHost\FLPStore.AppHost.csproj" />
     <ProjectReference Include="..\FLPStore.Core\FLPStore.Core.csproj" />
     <ProjectReference Include="..\FLPStore.CrossCutting\FLPStore.CrossCutting.csproj" />
     <ProjectReference Include="..\FLPStore.Domain\FLPStore.Domain.csproj" />

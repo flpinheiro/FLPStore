@@ -13,17 +13,12 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\FLPStore.ApiService\FLPStore.ApiService.csproj" />
-		<ProjectReference Include="..\FLPStore.Core\FLPStore.Core.csproj" />
-		<ProjectReference Include="..\FLPStore.CrossCutting\FLPStore.CrossCutting.csproj" />
-		<ProjectReference Include="..\FLPStore.Domain\FLPStore.Domain.csproj" />
 		<ProjectReference Include="..\FLPStore.Infra.SqlServer.MigrationService\FLPStore.Infra.SqlServer.MigrationService.csproj" />
-		<ProjectReference Include="..\FLPStore.Infra.SqlServer\FLPStore.Infra.SqlServer.csproj" />
 		<ProjectReference Include="..\FLPStore.Web\FLPStore.Web.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.1" />
-		<PackageReference Include="Aspire.Hosting.Keycloak" Version="9.3.1-preview.1.25305.6" />
 		<PackageReference Include="Aspire.Hosting.Redis" Version="9.3.1" />
 		<PackageReference Include="Aspire.Hosting.SqlServer" Version="9.3.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7">

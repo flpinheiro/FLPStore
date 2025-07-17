@@ -33,7 +33,7 @@ internal class UserRepositoryMock
         Mock.Verify(x => x.GetAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()), times);
         return this;
     }
-    public UserRepositoryMock SetupGetLoginAsync(AppUser user)
+    public UserRepositoryMock SetupGetLoginAsync(AppUser? user= null)
     {
         Mock.Setup(x => x.GetAsync(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(user)

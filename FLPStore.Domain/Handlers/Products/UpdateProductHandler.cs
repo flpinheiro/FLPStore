@@ -23,6 +23,7 @@ public class UpdateProductHandler(ILogger<UpdateProductHandler> logger, IUnitOfW
             var product = await unit.Products.GetAsync(request.Id, cancellationToken);
             if (product is null)
             {
+                await unit.CommitTransactionAsync(cancellationToken);
                 return new BaseResponse<ProductResponse>(false, "product not found");
             }
             UpdateProduct(product, request);

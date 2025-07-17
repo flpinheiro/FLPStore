@@ -8,7 +8,7 @@ public static class OpenApiBuilderExtensions
     {
         builder.Services.AddOpenApiDocument(options =>
         {
-            options.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
+            options.AddSecurity("JWT", [], new OpenApiSecurityScheme
             {
                 Type = OpenApiSecuritySchemeType.ApiKey,
                 Name = "Authorization",
@@ -43,7 +43,7 @@ public static class OpenApiBuilderExtensions
         return builder;
     }
 
-    public static WebApplication UseSwaggerDoc(this WebApplication app)
+    public static IApplicationBuilder UseSwaggerDoc(this IApplicationBuilder app)
     {
         // Add OpenAPI 3.0 document serving middleware
         // Available at: http://localhost:<port>/swagger/v1/swagger.json

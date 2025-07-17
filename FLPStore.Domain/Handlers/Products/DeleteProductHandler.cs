@@ -22,6 +22,7 @@ public class DeleteProductHandler(ILogger<DeleteProductHandler> logger, IUnitOfW
             var product = await unit.Products.GetAsync(request.Id, cancellationToken);
             if (product is null)
             {
+                await unit.CommitTransactionAsync(cancellationToken);
                 return new BaseResponse<ProductResponse>(false, "product not found");
             }
 

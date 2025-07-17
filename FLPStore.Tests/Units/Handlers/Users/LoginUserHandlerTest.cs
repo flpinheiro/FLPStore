@@ -61,7 +61,7 @@ public class LoginUserHandlerTest
     }
 
     [Fact]
-    public async Task Should_LoginUser_when_Passowrd_IsNotCorrect()
+    public async Task Should_Not_LoginUser_when_Passowrd_IsNotCorrect()
     {
         var user = new AppUserFixture()
             .Generate();
@@ -72,6 +72,28 @@ public class LoginUserHandlerTest
         };
 
         Users.SetupGetLoginAsync(user);
+
+        var response = await handler.Handle(request, CancellationToken.None);
+
+        Assert.NotNull(response);
+        Assert.False(response.IsSuccess);
+        Assert.Null(response.Data);
+        Assert.Equal("User not found.", response.Messages.First());
+
+        Users.VerifyGetLoginAsync(Times.Once());
+
+        jwtService.VerifyGenerateToken(Times.Never());
+    }
+    [Fact]
+    public async Task Should__not_LoginUser_when_User_IsNull()
+    {
+        var request = new LoginUserRequest
+        {
+            Email = "test@test.com",
+            Password = "another password",
+        };
+
+        Users.SetupGetLoginAsync();
 
         var response = await handler.Handle(request, CancellationToken.None);
 

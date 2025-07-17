@@ -13,7 +13,7 @@ internal class ProductRepositoryMock
         Mock = new Mock<IProductRepository>(MockBehavior.Strict);
     }
 
-    public ProductRepositoryMock SetupGetAsync(Product product)
+    public ProductRepositoryMock SetupGetAsync(Product? product = null)
     {
         Mock.Setup(x => x.GetAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(product)

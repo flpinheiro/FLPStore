@@ -60,6 +60,34 @@ public class UpdateProductHandlerTest
         Products.VerifyEdit(Times.Once())
             .VerifyGetAsync(Times.Once());
     }
+    [Fact]
+    public async Task Run_Handler_Must_return_productNotFound_Async()
+    {
+        var request = new UpdateProductRequestFixture().Generate();
+
+        unit.SetupSaveChangesAsync()
+            .SetupBeginTransactionAsync()
+            .SetupCommitTransactionAsync()
+            .SetupRollbackTransactionAsync();
+
+        Products.SetupEdit().SetupGetAsync();
+
+        var response = await handler.Handle(request, CancellationToken.None);
+
+        Assert.NotNull(response);
+        Assert.False(response.IsSuccess);
+        Assert.NotEmpty(response.Messages);
+        Assert.Null(response.Data);
+
+        unit.VerifyBeginTransactionAsync(Times.Once())
+            .VerifyCommitTransactionAsync(Times.Once())
+            .VerifySaveChangesAsync(Times.Never())
+            .VerifyRollBackTransactionAsync(Times.Never());
+
+        Products
+            .VerifyEdit(Times.Never())
+            .VerifyGetAsync(Times.Once());
+    }
 
     [Fact]
     public async Task Run_Handler_Excption_Async()
