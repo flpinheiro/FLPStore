@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://www.github.com/flpinheiro/FLPStore/releases/tag/v0.2.1) (2025-07-17)
+
+### Other
+
+* Merge branch 'master' of https://github.com/flpinheiro/FLPStore ([567ea4d](https://www.github.com/flpinheiro/FLPStore/commit/567ea4dfbad3df9536be8002b5aaf8c8bd84d14a))
+* Refactor OpenApiBuilder and update repository interfaces ([31aac21](https://www.github.com/flpinheiro/FLPStore/commit/31aac21b4c5e04e5a85f95e41c61ad429ab9bf73))
+
 <a name="0.2.0"></a>
 ## [0.2.0](https://www.github.com/flpinheiro/FLPStore/releases/tag/v0.2.0) (2025-07-15)
 
