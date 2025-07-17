@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.2.0"></a>
+## [0.2.0](https://www.github.com/flpinheiro/FLPStore/releases/tag/v0.2.0) (2025-07-15)
+
+### ✨ Features
+
+* Refactor API workflow and enhance functionality ([ef95f58](https://www.github.com/flpinheiro/FLPStore/commit/ef95f58d345d9e3821b011915775f441fe3b2498))
+
+### Other
+
+* Update CI/CD workflows and enhance versioning steps ([0f56a87](https://www.github.com/flpinheiro/FLPStore/commit/0f56a872e1975e0095d3d10c6d66a1460d82b9d9))
+
 <a name="0.1.0"></a>
 ## [0.1.0](https://www.github.com/flpinheiro/FLPStore/releases/tag/v0.1.0) (2025-07-15)
 
