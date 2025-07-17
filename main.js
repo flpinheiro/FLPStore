@@ -211,11 +211,6 @@ for (i = 0, l = charts.length; i < l; i++) {
 
 var assemblies = [
   {
-    "name": "FLPStore.AppHost",
-    "classes": [
-      { "name": "Program", "rp": "FLPStore.AppHost_Program.html", "cl": 0, "ucl": 33, "cal": 33, "tl": 41, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-    ]},
-  {
     "name": "FLPStore.Core",
     "classes": [
       { "name": "FLPStore.Core.Models.OrderAggregates.Order", "rp": "FLPStore.Core_Order.html", "cl": 0, "ucl": 34, "cal": 34, "tl": 50, "cb": 0, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
@@ -235,7 +230,6 @@ var assemblies = [
   {
     "name": "FLPStore.Domain",
     "classes": [
-      { "name": "FLPStore.Domain.DomainAssemblyExtensions", "rp": "FLPStore.Domain_DomainAssemblyExtensions.html", "cl": 0, "ucl": 6, "cal": 6, "tl": 27, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.DTOs.Requests.PaginateRequest", "rp": "FLPStore.Domain_PaginateRequest.html", "cl": 5, "ucl": 0, "cal": 5, "tl": 13, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.DTOs.Requests.Products.CreateProductRequest", "rp": "FLPStore.Domain_CreateProductRequest.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 13, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.DTOs.Requests.Products.DeleteProductRequest", "rp": "FLPStore.Domain_DeleteProductRequest.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 10, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
@@ -252,12 +246,12 @@ var assemblies = [
       { "name": "FLPStore.Domain.DTOs.Responses.Users.LoginUserResponse", "rp": "FLPStore.Domain_LoginUserResponse.html", "cl": 1, "ucl": 0, "cal": 1, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.DTOs.Responses.Users.UserResponse", "rp": "FLPStore.Domain_UserResponse.html", "cl": 4, "ucl": 0, "cal": 4, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.Handlers.Products.CreateProductHandler", "rp": "FLPStore.Domain_CreateProductHandler.html", "cl": 18, "ucl": 0, "cal": 18, "tl": 43, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "FLPStore.Domain.Handlers.Products.DeleteProductHandler", "rp": "FLPStore.Domain_DeleteProductHandler.html", "cl": 19, "ucl": 2, "cal": 21, "tl": 45, "cb": 1, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "FLPStore.Domain.Handlers.Products.DeleteProductHandler", "rp": "FLPStore.Domain_DeleteProductHandler.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 46, "cb": 2, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.Handlers.Products.GetPaginatedProductHandler", "rp": "FLPStore.Domain_GetPaginatedProductHandler.html", "cl": 9, "ucl": 0, "cal": 9, "tl": 27, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.Handlers.Products.GetProductHandler", "rp": "FLPStore.Domain_GetProductHandler.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "FLPStore.Domain.Handlers.Products.UpdateProductHandler", "rp": "FLPStore.Domain_UpdateProductHandler.html", "cl": 25, "ucl": 2, "cal": 27, "tl": 54, "cb": 1, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "FLPStore.Domain.Handlers.Products.UpdateProductHandler", "rp": "FLPStore.Domain_UpdateProductHandler.html", "cl": 28, "ucl": 0, "cal": 28, "tl": 55, "cb": 2, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.Handlers.Users.CreateUserHandler", "rp": "FLPStore.Domain_CreateUserHandler.html", "cl": 21, "ucl": 0, "cal": 21, "tl": 43, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "FLPStore.Domain.Handlers.Users.LoginUserHandler", "rp": "FLPStore.Domain_LoginUserHandler.html", "cl": 15, "ucl": 0, "cal": 15, "tl": 34, "cb": 3, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "FLPStore.Domain.Handlers.Users.LoginUserHandler", "rp": "FLPStore.Domain_LoginUserHandler.html", "cl": 15, "ucl": 0, "cal": 15, "tl": 34, "cb": 4, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.Profiles.ProductProfile", "rp": "FLPStore.Domain_ProductProfile.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "FLPStore.Domain.Profiles.UserProfile", "rp": "FLPStore.Domain_UserProfile.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
